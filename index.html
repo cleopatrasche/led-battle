@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="2026 전북 메이커페스티벌 A-1 부스 「빛을 쏘다 : LED 컬러 슈팅 배틀」 체험 예약과 실시간 리더보드">
+  <title>빛을 쏘다 : LED 컬러 슈팅 배틀 | 체험 예약</title>
+  <link rel="icon" type="image/png" href="img/icon.png">
+  <link rel="apple-touch-icon" href="img/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+  <div id="modeBanner" class="mode-banner" hidden></div>
+  <div id="netBanner" class="net-banner" role="status" hidden>연결이 끊겼어요. 자동으로 다시 연결하는 중…</div>
+
+  <header class="top">
+    <div class="strip" aria-hidden="true"></div>
+    <div class="top-inner">
+      <p class="event" id="eventName">2026 전북 메이커페스티벌</p>
+      <div class="title-row">
+        <h1 class="title">
+          <span class="title-main" id="titleMain">빛을 쏘다</span>
+          <span class="title-sub" id="titleSub">LED 컬러 슈팅 배틀</span>
+        </h1>
+        <p class="booth" aria-label="부스 번호"><span class="booth-no" id="boothNo">A-1</span><span class="booth-word">부스</span></p>
+      </div>
+      <ul class="facts">
+        <li id="dateLabel">2026년 11월 7일(토) 10:00~16:00</li>
+        <li id="placeLabel">전북특별자치도교육청 과학교육원 교육연수관 2층</li>
+      </ul>
+    </div>
+  </header>
+
+  <nav class="tabs" aria-label="메뉴">
+    <a href="#reserve" data-tab="reserve">예약</a>
+    <a href="#board" data-tab="board">리더보드</a>
+    <a href="#guide" data-tab="guide">체험 안내</a>
+    <a href="#play" data-tab="play">조작법</a>
+  </nav>
+
+  <main id="main">
+    <!-- ───────── 예약 ───────── -->
+    <section class="view" id="view-reserve" data-view="reserve" aria-label="예약">
+      <div class="reserve-side">
+        <div class="notice">
+          <h2 class="notice-title">예약 전에 꼭 읽어 주세요</h2>
+          <ul class="notice-list" id="noticeList"></ul>
+        </div>
+        <p class="how">빈 자리를 누르면 예약, 내 이름을 누르면 수정·취소할 수 있어요.</p>
+      </div>
+      <ol class="slots" id="slotList" aria-live="polite">
+        <li class="loading">예약 현황을 불러오는 중…</li>
+      </ol>
+      <p class="updated" id="listUpdated"></p>
+    </section>
+
+    <!-- ───────── 리더보드 ───────── -->
+    <section class="view" id="view-board" data-view="board" aria-label="리더보드" hidden>
+      <div class="tv-head" aria-hidden="true">
+        <div class="strip"></div>
+        <p class="tv-title"><span id="tvTitle">빛을 쏘다</span> 실시간 랭킹</p>
+      </div>
+      <div class="board-head">
+        <h2 class="view-title">리더보드</h2>
+        <button type="button" class="btn ghost" id="tvBtn">크게 보기</button>
+      </div>
+      <p class="updated" id="boardUpdated"></p>
+      <div id="board" class="board" aria-live="polite">
+        <p class="loading">순위를 불러오는 중…</p>
+      </div>
+      <button type="button" class="tv-exit" id="tvExit">닫기</button>
+    </section>
+
+    <!-- ───────── 체험 안내 ───────── -->
+    <section class="view" id="view-guide" data-view="guide" aria-label="체험 안내" hidden>
+      <h2 class="view-title">체험 안내</h2>
+      <nav class="guide-nav" aria-label="설명서 바로가기">
+        <a href="#guide" data-guide="overview">전체 흐름</a>
+        <a href="#guide-tactile" data-guide="tactile">택트 버튼 세트</a>
+        <a href="#guide-arcade" data-guide="arcade">아케이드 버튼 세트</a>
+        <a href="#guide-module" data-guide="module">버튼 모듈 세트</a>
+      </nav>
+
+      <figure class="manual" id="sec-overview">
+        <figcaption class="manual-title">전체 흐름</figcaption>
+        <button type="button" class="zoom" data-src="img/overview.png" data-title="전체 흐름">
+          <img src="img/overview.png" alt="체험 전체 흐름 안내 그림" width="1800" height="3966">
+        </button>
+      </figure>
+
+      <figure class="manual" id="sec-tactile">
+        <figcaption class="manual-title">택트 버튼 세트</figcaption>
+        <button type="button" class="zoom" data-src="img/manual_tactile.png" data-title="택트 버튼 세트">
+          <img src="img/manual_tactile.png" alt="택트 버튼 세트 조립 설명서" width="1588" height="2246" loading="lazy">
+        </button>
+      </figure>
+
+      <figure class="manual" id="sec-arcade">
+        <figcaption class="manual-title">아케이드 버튼 세트</figcaption>
+        <button type="button" class="zoom" data-src="img/manual_arcade.png" data-title="아케이드 버튼 세트">
+          <img src="img/manual_arcade.png" alt="아케이드 버튼 세트 조립 설명서" width="1588" height="2246" loading="lazy">
+        </button>
+      </figure>
+
+      <figure class="manual" id="sec-module">
+        <figcaption class="manual-title">버튼 모듈 세트</figcaption>
+        <button type="button" class="zoom" data-src="img/manual_module.png" data-title="버튼 모듈 세트">
+          <img src="img/manual_module.png" alt="버튼 모듈 세트 조립 설명서" width="1588" height="2246" loading="lazy">
+        </button>
+      </figure>
+      <p class="tap-hint">그림을 누르면 크게 볼 수 있어요. 두 손가락으로 벌려 확대할 수도 있어요.</p>
+    </section>
+
+    <!-- ───────── 조작법 (#play) : 게임기 버튼 조작 ───────── -->
+    <section class="view" id="view-play" data-view="play" aria-label="조작법" hidden>
+      <h2 class="view-title">게임기 조작법</h2>
+      <p class="play-lead">대기화면(점수판 <span class="seg">PLAy</span>)에서 <b>아무 버튼이나 눌렀다 떼면</b> 게임이 시작돼요.</p>
+
+      <div class="play-grid">
+        <article class="pcard pcard--key" id="play-level">
+          <h3 class="pcard-title">난이도 바꾸기</h3>
+          <ol class="psteps">
+            <li>
+              <p class="pstep-do"><span class="key k-red">빨강</span><span class="plus">+</span><span class="key k-blue">파랑</span><span>함께 <b>5초</b> 꾹</span></p>
+              <p class="pstep-see">대기화면에서 눌러요. 점수판 <span class="seg">-</span> <span class="seg">--</span> <span class="seg">---</span> <span class="seg">----</span> 다음 <span class="seg">SEt</span></p>
+            </li>
+            <li>
+              <p class="pstep-do"><span class="key k-yellow">노랑</span><span>누를 때마다 바뀌어요</span></p>
+              <p class="pstep-see"><span class="seg">L-1</span> → <span class="seg">L-2</span> → <span class="seg">L-3</span> (LED 막대도 1~3칸)</p>
+            </li>
+            <li>
+              <p class="pstep-do"><span class="key k-green">초록</span><span>저장</span></p>
+              <p class="pstep-see"><span class="seg">donE</span> 다음 대기화면으로 돌아가요</p>
+            </li>
+          </ol>
+          <ul class="pnotes">
+            <li><span class="key k-red sm">빨강</span> 저장하지 않고 취소</li>
+            <li>20초 동안 아무것도 안 누르면 저장 없이 자동으로 빠져나와요</li>
+          </ul>
+          <p class="teacher"><b>선생님·도우미만</b> 설정 메뉴에서 <span class="key k-blue sm">파랑</span> 3초 → 지금 고른 난이도의 최고점 지우기 <span class="seg">CLr</span></p>
+        </article>
+
+        <article class="pcard">
+          <h3 class="pcard-title">난이도별 차이</h3>
+          <table class="ltable">
+            <thead>
+              <tr><th scope="col"><span class="sr">항목</span></th><th scope="col"><span class="seg">L-1</span>초급</th><th scope="col"><span class="seg">L-2</span>중급</th><th scope="col"><span class="seg">L-3</span>고급</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">나오는 색</th><td>빨·노·파<br>3색</td><td>4색</td><td>4색</td></tr>
+              <tr><th scope="row">생명</th><td>5</td><td>3</td><td>3</td></tr>
+              <tr><th scope="row">속도</th><td>느림 → 보통</td><td>보통 → 빠름</td><td>빠름 → 매우 빠름</td></tr>
+              <tr><th scope="row">잘못 쏘면</th><td>제한 없음</td><td>0.3초 못 쏨</td><td>0.6초 못 쏨</td></tr>
+            </tbody>
+          </table>
+          <p class="pnote-fair">순위표는 난이도 구분 없이 점수만 비교해요. 기록할 판은 선생님이 정한 난이도로 해요.</p>
+        </article>
+
+        <article class="pcard">
+          <h3 class="pcard-title">한 판의 흐름</h3>
+          <ol class="pflow">
+            <li><b>시작</b>아무 버튼을 눌렀다 떼면 3, 2, 1, GO</li>
+            <li><b>게임</b>다가오는 빛을 같은 색 버튼으로 쏘기 (최대 90초)</li>
+            <li><b>끝</b>생명이 다 떨어지거나 90초가 지나면 <span class="seg">End</span>, 이어서 내 점수가 깜빡여요</li>
+            <li><b>다음 판</b>2.5초 뒤 아무 버튼. 12초 동안 안 누르면 대기화면으로</li>
+          </ol>
+        </article>
+
+        <article class="pcard">
+          <h3 class="pcard-title">연결 확인 (점검 모드)</h3>
+          <ol class="pflow">
+            <li><b>들어가기</b>대기화면에서 <span class="key k-yellow sm">노랑</span><span class="plus">+</span><span class="key k-green sm">초록</span> 함께 5초</li>
+            <li><b>확인</b>버튼을 하나씩 누르면 LED 전체가 그 색으로 바뀌고 소리가 나요. 점수판 <span class="seg">b-1</span>~<span class="seg">b-4</span></li>
+            <li><b>나가기</b><span class="key k-yellow sm">노랑</span><span class="plus">+</span><span class="key k-green sm">초록</span> 함께 3초</li>
+          </ol>
+          <p class="pnote">다른 색이 뜨면 그 버튼 선이 다른 줄에 꽂힌 거예요. 회로카드 표와 맞춰 보세요.</p>
+        </article>
+
+        <article class="pcard pcard--wide">
+          <h3 class="pcard-title">점수판 글자 읽기</h3>
+          <dl class="segs">
+            <div><dt><span class="seg">PLAy</span></dt><dd>대기화면, 아무 버튼으로 시작</dd></div>
+            <div><dt><span class="seg">bESt</span></dt><dd>이 게임기의 최고점 (다음에 숫자)</dd></div>
+            <div><dt><span class="seg">L-2</span></dt><dd>지금 난이도 (1 초급, 2 중급, 3 고급)</dd></div>
+            <div><dt><span class="seg">End</span></dt><dd>게임 끝, 다음에 내 점수</dd></div>
+            <div><dt><span class="seg">SEt</span></dt><dd>설정 메뉴에 들어옴</dd></div>
+            <div><dt><span class="seg">donE</span></dt><dd>저장 완료</dd></div>
+            <div><dt><span class="seg">CLr</span></dt><dd>최고점 지움</dd></div>
+            <div><dt><span class="seg">LoPo</span></dt><dd>전원이 약해요. 선생님께 알려 주세요</dd></div>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <!-- ───────── 관리자 (#admin) ───────── -->
+    <section class="view" id="view-admin" data-view="admin" aria-label="관리자" hidden>
+      <div id="adminRoot"></div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p id="footText">빛을 쏘다 : LED 컬러 슈팅 배틀</p>
+    <a href="#admin" class="admin-link">관리자</a>
+  </footer>
+
+  <div id="modalRoot"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <noscript><p class="noscript">이 페이지는 자바스크립트가 켜져 있어야 동작합니다.</p></noscript>
+
+  <!-- 설정(운영자가 고치는 파일) → 앱 순서로 불러옵니다 -->
+  <script src="config.js"></script>
+  <script src="app.js?v=2"></script>
+</body>
+</html>
